@@ -15,5 +15,13 @@ In order to retain a healthy workforce, having healthy food options is where it 
 3) StaffFuel will foster a sense of community engagement. Promoting wellness challenges, sharing success stories and facilitating social interactions can lead to a supportive environment where staff motivate and inspire
    each other to lose weight, make healthier choices and create healthier behaviours.
 
+## TECHNOLOGIES/TOOLS 
+1. React.js
+2. Next.js
+3. Express.js
+4. MongoDB
+5. Vercel or Docker
+6. Postman
+7. Figma for UI design
 
 
