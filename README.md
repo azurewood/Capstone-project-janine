@@ -27,7 +27,14 @@ food options.
 7. Figma for UI design
 
 ## Project Phase Flowchart
-flowchart TD 
-    Start --> Stop
+```
+flowchart TD
+    A[Plan Capstone Project] --> B(Analysis - gather specific details )
+ --> C{Design & Prototype}
+ --> D{Develop software}
+ --> E{Testing}
+ --> F{Deplyoment}
+ --> G{Ongoing Maintenance/updates}
+```
 
 
