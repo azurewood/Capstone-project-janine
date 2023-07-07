@@ -3,7 +3,7 @@
 
 StaffFuel is a food application for hospitals that offers healthy food options for hospital staff and eliminates the need for its employees to wait in line. 
 
-# OBJECTIVES
+## OBJECTIVES
 This app is designed to encourage hospital staff to make nutritious food choices, leading to improved overall health, enhanced performance and improved focus and productivity in the work place, which can in turn, positively impact patient care and outcomes. Because hospital staff also work long stressful hours, it may be challenging to maintain a healthy diet, and so a healthy food app can assist them in making informed choices and reduce their risk of cardiovascular diseases, such as diabetes and heart disease. The app offers the benefits of convenience and saving time as hospital staff working in high-stress environments may struggle to find time for meal planning and preparation. Having a healthy food app can provide staff with easy and healthier food recipes to choose from and saves time and effort, making staff more likely to choose healthy food options. 
 
 StaffFuel will only collect essential data from hospital staff needed to run the service, such as employee ID number, full name, email and payment. 
