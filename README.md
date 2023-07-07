@@ -30,6 +30,7 @@ food options.
 
 ```mermaid
 flowchart TD;
+
     A[Plan Capstone Project];
  --> B(Analysis - gather specific details );
  --> C(Design & Prototype);
@@ -37,5 +38,6 @@ flowchart TD;
  --> E(Testing);
  --> F(Deployment);
  --> G(Ongoing Maintenance/updates);
+ 
 ```
 
