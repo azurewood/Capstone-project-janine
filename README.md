@@ -7,7 +7,7 @@ This app is designed to encourage hospital staff to make nutritious food choices
 
 StaffFuel will only collect essential data from hospital staff needed to run the service, such as employee ID number, full name, email and payment. 
 
-Although there are some healthy food apps that have been implemented in hospitals worldwide, they only seem to cater for the patients only and not the hospital staff. 
+Although there are some healthy food apps that have been implemented in hospitals worldwide, they only seem to cater for the patients only and not the hospital staff. Thus, this is where StaffFuel comes in
 
 ## Objectives
 1) Promote healthy eating: StaffFuel is designed for staff. We believe that providing healthy food options for hospital staff will have a positive impact on their physical, emotional and mental performance as well as patient care and outcomes. In order to retain a healthy workforce, having healthy food options is where it starts. We cannot forget about our wonderful staff who do a good job looking after our patients, so to continue this we must look after them too.
