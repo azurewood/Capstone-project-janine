@@ -28,7 +28,7 @@ food options.
 
 ## Project Phase Flowchart
 ```mermaid
-flowchart TD
+flowchart TD;
     A[Plan Capstone Project] --> B(Analysis - gather specific details );
  --> C(Design & Prototype);
  --> D(Develop software);
