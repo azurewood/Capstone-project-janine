@@ -36,6 +36,6 @@ flowchart TD;
  --> D(Develop software);
  --> E(Testing);
  --> F(Deplyoment);
- --> G (Ongoing Maintenance/updates);
+ --> G(Ongoing Maintenance/updates);
 ```
 
