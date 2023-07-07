@@ -35,7 +35,7 @@ flowchart TD;
  --> C(Design & Prototype);
  --> D(Develop software);
  --> E(Testing);
- --> F(Deplyoment);
+ --> F(Deployment);
  --> G(Ongoing Maintenance/updates);
 ```
 
