@@ -26,4 +26,8 @@ food options.
 6. Postman
 7. Figma for UI design
 
+## Project Phase Flowchart
+flowchart TD 
+    Start --> Stop
+
 
