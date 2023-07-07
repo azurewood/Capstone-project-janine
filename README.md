@@ -39,4 +39,4 @@ flowchart TD;
  --> G(Ongoing Maintenance/updates);
 ```
 
-![image](https://github.com/JanineSooThow/Capstone-project/assets/125438317/c1cbf61d-66cd-437d-96c5-4d500006790a)
+
