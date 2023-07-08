@@ -26,18 +26,21 @@ food options.
 6. Postman
 7. Figma for UI design
 
-## Project Phase Flowchart
-
-```mermaid
+## Software Development Phase 
+``` mermaid
 flowchart TD;
+ A[Plan Capstone Project] -->B(Analysis - gather specific details)
+ B -->C(Design & prototype) 
+ C -->c(BackEnd) 
+ C -->d(FrontEnd)
+ d--> D(Develop software);
+ c -->D(Develop software)
+ D --> E(Testing);
+ E--> F(Deployment);
+ F--> G(Ongoing Maintenance/updates);
 
-    A[Plan Capstone Project];
- --> B(Analysis - gather specific details );
- --> C(Design & Prototype);
- --> D(Develop software);
- --> E(Testing);
- --> F(Deployment);
- --> G(Ongoing Maintenance/updates);
- 
+``` 
+## User Flow Diagram
+``` mermaid
+
 ```
-
