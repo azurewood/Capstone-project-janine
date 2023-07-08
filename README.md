@@ -42,5 +42,20 @@ flowchart TD;
 ``` 
 ## User Flow Diagram
 ``` mermaid
-
+flowchart TD;
+A[Start] -->B(Landing page)
+B(Acccount login) -->C(Successful Login)
+C(Dashboard Page) -->D(Search filter bar)
+C-->S(Shopping Cart)
+D-->E(Filtered results)
+E-->G(Meal details)
+G-->f(Add to favourites)
+f--favorites-->S
+G-->H(Add to cart)
+H-->S
+C-->J(Auto/manual Autoslider)
+C--Popular Meal Options-->S(Shopping cart)
+S-->P(Payment)
+P--confirmation of payment-->L
+C-->L(Logout)
 ```
