@@ -2,6 +2,7 @@
 //npm install express
 //npm install dotenv (Way to read in configuration for application)
 //npm install mongoose --save (an object data modelling library - provides simple and structured way to work with MongoDB)
+//To start the server - npm start 
 
 const express = require("express");
 const app = express();
@@ -13,6 +14,7 @@ let dbConnect = require("./dbConnect");
 // parse requests of content-type -application/json
 app.use(express.json());
 
+//create route/path to our routes
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to my MongoDB application." });
 });
