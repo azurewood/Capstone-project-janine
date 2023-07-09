@@ -1,7 +1,7 @@
 # Capstone-project
 # StaffFuel
 
-StaffFuel is a food application for hospitals that offers healthy food options for hospital staff and eliminates the need for its employees to wait in line. 
+StaffFuel is a food application for hospitals that offers healthy food options for hospital staff and eliminates the need for its employees to wait in line. As a nurse, I find that with the short break times and long queues of people waiting to order food at the cafeteria can lead to frustration, going to other places to buy unhealthy food options, and having shorter break times. 
 
 This app is designed to encourage hospital staff to make nutritious food choices, leading to improved overall health, enhanced performance and improved focus and productivity in the work place, which can in turn, positively impact patient care and outcomes. Because hospital staff also work long stressful hours, it may be challenging to maintain a healthy diet, and so a healthy food app can assist them in making informed choices and reduce their risk of cardiovascular diseases, such as diabetes and heart disease. The app offers the benefits of convenience and saving time as hospital staff working in high-stress environments may struggle to find time for meal planning and preparation. Having a healthy food app can provide staff with easy and healthier food recipes to choose from and saves time and effort, making staff more likely to choose healthy food options. 
 
