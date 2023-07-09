@@ -1,7 +1,9 @@
 //npm init 
 //npm install express
 //npm install dotenv (Way to read in configuration for application)
+//npm install nodemon
 //npm install mongoose --save (an object data modelling library - provides simple and structured way to work with MongoDB)
+//npm install axios
 //To start the server - npm start 
 
 const express = require("express");
