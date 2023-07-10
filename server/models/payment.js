@@ -10,7 +10,7 @@ const paymentSchema = new Schema({
     status: {type: String, required: true},
     firstName: { type: String, trim: true, required: true }, //?can ref from 'user' model
     lastName: { type: String, trim: true, required: true },
-    cardInfo: {type: String, required: true} //adding card info 
+   //do not put card information in here for security reasons. 
    
 });
 

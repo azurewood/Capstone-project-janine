@@ -17,6 +17,9 @@ let dbConnect = require("./dbConnect");
 app.use(express.json());
 
 //create route/path to our routes
+let APIDataRoute = require('./routes/APIDataRoute')
+app.use('/api/routes', APIDataRoute)
+
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to my MongoDB application." });
 });
