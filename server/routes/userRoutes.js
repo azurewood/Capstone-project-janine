@@ -6,8 +6,8 @@ router.get('/', (req, res) => {
     Controllers.userController.getUsers(res);
 });
 
-router.post('/create', (req, res) => {
-    Controllers.userController.postUser(req.body, res);
+router.post('/', (req, res) => {
+    Controllers.userController.createUser(req.body, res); //req is the request, contains the body - postman
 });
 
 router.put('/:id', (req, res) => {

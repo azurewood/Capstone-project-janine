@@ -8,7 +8,6 @@ const userSchema = new Schema({
     firstName: { type: String, trim: true, required: true },
     lastName: { type: String, trim: true, required: true },
     employeeId: {type: Number, min: 1000, max: 9999, required: true, unique: true}, //allows values between 1000 and 9999
-    mobileId: {type: Number, trim: true, required: true, unique: true},
     emailId: {type: String, trim: true, required: true, unique:true },
     password: {type: String}
 });

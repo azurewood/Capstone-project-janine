@@ -16,10 +16,17 @@ let dbConnect = require("./dbConnect");
 // parse requests of content-type -application/json
 app.use(express.json());
 
+//stops CORS browser error (npm install cors)
+let cors = require("cors");
+app.use(cors())
+
 //create route/path to our routes
 
 let mealRoutes = require('./routes/mealRoutes')
 app.use('/mealapi/routes', mealRoutes)
+
+let userRoutes = require('./routes/userRoutes')
+app.use('/user', userRoutes)
 
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to my MongoDB application." });
