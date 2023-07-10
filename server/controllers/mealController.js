@@ -6,7 +6,7 @@ const fetchAPIData = (req, res) => {
         maxBodyLength: Infinity,
         url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?diet=vegetarian&includeIngredients="salad, egg"&number=30&offset=30',
         headers: {
-            "X-RapidAPI-Key": "1b3d9c7780msh93206ced280bc1bp14c321jsnaed3588d3fef"
+            "X-RapidAPI-Key": process.env.APIKey
         }
 
     };

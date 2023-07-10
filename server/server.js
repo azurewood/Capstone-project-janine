@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 });
 
 // set port, listen for requests. Defining PORT as a variable 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });
