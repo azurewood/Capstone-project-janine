@@ -7,7 +7,7 @@ const LandingPage: React.FC = () => {
   return (
     <>
     <div>
-        <LoginForm></LoginForm>
+       
     </div>
     </>
   );
