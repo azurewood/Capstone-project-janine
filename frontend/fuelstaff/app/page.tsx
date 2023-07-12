@@ -1,17 +1,19 @@
-//Landing page for StaffFuel
 'use client'
 import React from 'react';
-import Landingbanner from '../src/components/Landingbanner' 
+import backgroundimage from '../public/capstoneimages/backgroundimage.jpg';
+import Landingnavbar from '../src/components/Landingnavbar';
 
 const LandingPage: React.FC = () => {
+  const landingImageUrl = backgroundimage.src;
+
   return (
     <>
-    <div>
-       <Landingbanner/>
-    </div>
+      <div>
+      <Landingnavbar />
+        <img src={landingImageUrl} alt="Landing Image" />
+      </div>
     </>
   );
 };
 
 export default LandingPage;
-   
