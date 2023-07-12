@@ -20,14 +20,22 @@ function RegistrationForm({show, closeSignUpForm}) {
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>First Name </Form.Label>
               <Form.Control
-                type="firstname"
+                type="text"
                 autoFocus
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Last Name </Form.Label>
               <Form.Control
-                type="lastname"
+                type="text"
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Employee ID</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="enter your 4-digit number"
                 autoFocus
               />
             </Form.Group>

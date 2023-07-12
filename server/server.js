@@ -28,6 +28,9 @@ app.use('/mealapi/routes', mealRoutes)
 let userRoutes = require('./routes/userRoutes')
 app.use('/user', userRoutes)
 
+let authRoutes = require('./routes/auth')
+app.use('/auth', authRoutes)
+
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to my MongoDB application." });
 });
