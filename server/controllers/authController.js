@@ -5,7 +5,11 @@ let Models = require("../models");
 const mongoose = require('mongoose');
 const asyncHandler = require('../middleware/asyncHandler')
 
-const registerUser = asyncHandler(async (req, res) => {
+
+//desc      Registeration for user
+//route     POST auth/registration
+//access    Public
+exports.registerUser = asyncHandler(async (req, res) => {
  const {firstName, lastName, emailId, employeeId, password } = req.body
  const userData = await Models.User.findOne({emailId})
     
@@ -24,7 +28,3 @@ const registerUser = asyncHandler(async (req, res) => {
         });
 };
 })
-
-module.exports = { 
-    registerUser  
-};

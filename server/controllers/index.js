@@ -3,5 +3,4 @@ module.exports={
     mealController: require('./mealController'),
     orderController: require('./orderController'),
     paymentController: require('./paymentController'),
-    authController: require('./authController')
 }

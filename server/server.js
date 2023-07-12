@@ -28,7 +28,7 @@ app.use('/mealapi/routes', mealRoutes)
 let userRoutes = require('./routes/userRoutes')
 app.use('/user', userRoutes)
 
-let authRoutes = require('./routes/auth')
+let authRoutes = require('./routes/authRoutes')
 app.use('/auth', authRoutes)
 
 app.get("/", (req, res) => {
