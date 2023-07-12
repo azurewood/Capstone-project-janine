@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import './landingstyles.css'; //importing css file 
 
 export default function Landingnavbar() {
   //  const [headerOptions, setheaderOptions] = usetState(false);

@@ -1,0 +1,25 @@
+/*navigation bar on landing page with two buttons */
+.landingnavbar-links-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding-top: 5px;
+    background-color: whitesmoke;
+}
+
+/*hiding scroll bars on landing page*/
+body {
+    margin: 0; /* Remove default margin */
+    overflow: hidden; /* Hide scroll bars from the body */
+  }
+
+/*background image on landing page */
+.landingimage {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+   
+
+}
