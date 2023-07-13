@@ -15,8 +15,10 @@ function LoginForm({show, handleClose}) {
 //Access the router object - the 'useRouter' hook is used to access the router object, which allows for navigation after successful registration. 
   const router = useRouter()
   
+//server URL where a user's information gets sent when the user logs in
   const SERVER_URL = 'http://localhost:8080/auth/login';
 
+//user object with key values 
   const user = {
     emailId: emailId,
     password: password
@@ -26,7 +28,9 @@ function LoginForm({show, handleClose}) {
 const handleSubmit = async (e) => {
   e.preventDefault()
 
-   // Perform client-side validation
+   // Perform client-side validation.
+   // Both `emailId.trim() === ''` and `password.trim() === ''`check if the email and password input fields are empty strings. If either field is empty (the condition is 'true'), the 'loginError' state varia is set to the specified error 
+   // message, telling the user needs to enter a valid email and password. The 'return' exits the function immediately, preventing the form submission from going further. 
    if (emailId.trim() === '' || password.trim() === '') {
     setLoginError('Please enter valid email and password.');
     return;
@@ -41,15 +45,15 @@ const handleSubmit = async (e) => {
   if (response.ok) {
     const data = await response.json();
     console.log('LOGIN SUCCESSFUL!', data);
-    //redirect user to the dashboard if login is successful
+    //if login is successful, user is redirected to the dashboard page
     if (data.result === 200) {
       router.push('../../../app/dashboard');
     }
   } else {
     if (response.status === 401) { //401: client request not completed because it lacks valid authentication creditentials
-      setLoginError('Invalid email or password.');
+      setLoginError('Invalid email or password.'); 
     } else if (response.status === 400) {
-      setLoginError('User not found. Please register.');
+      setLoginError('User not found. Please register'); //tells a new user to click the 'register' button.
     }
   }
 };
@@ -62,6 +66,7 @@ const handleSubmit = async (e) => {
           <Modal.Title>Sign In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          {/*Sign In Form*/}
           <Form onSubmit ={handleSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Email address</Form.Label>
@@ -83,8 +88,8 @@ const handleSubmit = async (e) => {
                placeholder = "Password"
                />  
             </Form.Group>
-            {loginError && <p>{loginError}</p>}
-       
+            {/*Conditional rendering statement - if 'loginError' is truthy, the <p> element with the value of 'loginError' content will render*/}
+            {loginError && <p>{loginError}</p>} 
         <Modal.Footer>
           {/*Close button*/}
           <Button variant="secondary" onClick={handleClose}>

@@ -35,18 +35,18 @@ exports.loginUser = asyncHandler(async (req, res) => {
   const { emailId, password } = req.body;
   const user = await Models.User.findOne({ emailId });
 
-  if (!user) {
-    res.status(400);
-    throw new Error('USER NOT FOUND');
-  } else {
-  // Perform login authentication logic here
-  if (password !== user.password) {
-    res.status(401);
-    throw new Error('INVALID PASSWORD');
-  } else {
-    // Password matches, login successful
-    res.send({ result: 200, data: user });
+    if (!user) {
+      res.status(400);
+      throw new Error('USER NOT FOUND');
+    } else {
+    // Perform login authentication logic here
+    if (password !== user.password) {
+      res.status(401);
+      throw new Error('INVALID PASSWORD');
+    } else {
+      // Password matches, login successful
+      res.send({ result: 200, data: user });
+    }
   }
-}
 
-})
+  })
