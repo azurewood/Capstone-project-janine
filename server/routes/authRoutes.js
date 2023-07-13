@@ -10,7 +10,7 @@ const router = express.Router()
 
 //Two routers are defined using the 'router' object
 //router.post('/registration', authController.registerUser): This route is also associated with the POST HTTP method and the /registration URL path. It is handled by the registerUser function from the authController module.
-router.post('/login')
+router.post('/login', authController.loginUser)
 router.post('/registration', authController.registerUser)
 
 

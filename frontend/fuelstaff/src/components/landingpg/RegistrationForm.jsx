@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-
 //declaring functional component LoginForm
 //state variable is used to control whether modal shows or not
 //component RegistrationForm takes two props: 'show' and 'closeSignUpForm'
@@ -16,6 +15,8 @@ function RegistrationForm({show, closeSignUpForm}) {
   const [employeeId, setEmployeeId] = useState('')
   const [emailId, setEmailId] = useState('')
   const [password, setPassword] = useState('')
+  const [emailError, setEmailError] = useState('');
+
 //Access the router object - the 'useRouter' hook is used to access the router object, which allows for navigation after successful registration. 
   const router = useRouter()
 
@@ -43,11 +44,14 @@ function RegistrationForm({show, closeSignUpForm}) {
     if (response.ok) {
         const data = await response.json();
         console.log('USER REGISTERED!', data)
-        router.push('/')
+        router.push('../../../app/dashboard')
     } else {
         if (response.status === 400) {
             const data = await response.json()
             console.log('ERROR in REGISTRATION', data.message)
+            if (data.error === 'USER ALREADY EXISTS') {
+              setEmailError('User already exists.')
+            }
         }
     }
 
@@ -67,7 +71,7 @@ function RegistrationForm({show, closeSignUpForm}) {
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>First Name </Form.Label>
               <Form.Control
-              autoFocus
+                autoFocus
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
@@ -103,6 +107,7 @@ function RegistrationForm({show, closeSignUpForm}) {
                 placeholder="Email"
                 onChange={(e) => setEmailId(e.target.value)} 
               />
+              {emailError && <Form.Text className="text-danger registration-error">{emailError}</Form.Text>}
             </Form.Group>
             <Form.Group
               className="mb-3"

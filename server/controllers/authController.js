@@ -13,7 +13,7 @@ const asyncHandler = require('../middleware/asyncHandler') //handles asynchronou
 //'register user' asynchronous function is exported and serves as the controller for the registration route. 
 exports.registerUser = asyncHandler(async (req, res) => {
  const {firstName, lastName, emailId, employeeId, password } = req.body //retrieves user data from the request body
- const userData = await Models.User.findOne({emailId}) //checks if user with provided email already exists in db. 
+ const userData = await Models.User.findOne({emailId}) //(RegistrationForm.jsx) checks if user with provided email already exists in db. 
     
  if (userData) {
     res.status(400)
@@ -28,4 +28,25 @@ exports.registerUser = asyncHandler(async (req, res) => {
             res.send({ result: 500, error: err.message });
         });
 };
+})
+
+// Login user (LoginForm.jsx)
+exports.loginUser = asyncHandler(async (req, res) => {
+  const { emailId, password } = req.body;
+  const user = await Models.User.findOne({ emailId });
+
+  if (!user) {
+    res.status(400);
+    throw new Error('USER NOT FOUND');
+  } else {
+  // Perform login authentication logic here
+  if (password !== user.password) {
+    res.status(401);
+    throw new Error('INVALID PASSWORD');
+  } else {
+    // Password matches, login successful
+    res.send({ result: 200, data: user });
+  }
+}
+
 })
