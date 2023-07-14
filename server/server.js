@@ -23,7 +23,7 @@ app.use(cors())
 //create route/path to our routes
 
 let mealRoutes = require('./routes/mealRoutes')
-app.use('/mealapi/routes', mealRoutes)
+app.use('/mealapi', mealRoutes)
 
 let userRoutes = require('./routes/userRoutes')
 app.use('/user', userRoutes)
