@@ -16,7 +16,6 @@ function RegistrationForm({show, closeSignUpForm}) {
   const [emailId, setEmailId] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError] = useState('');
-  const [employeeIdError, setEmployeeIdError] = useState('');
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
 
@@ -50,7 +49,7 @@ function RegistrationForm({show, closeSignUpForm}) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify(userData)
-    })
+    });
 
 //Handling the response
     if (response.ok) {
@@ -62,17 +61,17 @@ function RegistrationForm({show, closeSignUpForm}) {
         router.push('../../../app/dashboard');
         }
     } else {
-        if (response.status === 400) {
+        if (response.status === 400) { 
             const data = await response.json()
             console.log('ERROR in REGISTRATION', data.message)
             //if user signs in using existing email and password
             if (data.error === 'USER ALREADY EXISTS') { 
-              setEmailError && setEmployeeId ('User already exists');
+              setEmailError ('User already exists');
             }
-        }
-    }
-
+          }
+      }
   };
+    
   //to reset the form
   const handleReset = () => {
     setFirstName('');
@@ -81,7 +80,6 @@ function RegistrationForm({show, closeSignUpForm}) {
     setEmailId('');
     setPassword('');
     setEmailError('');
-    setEmployeeIdError('');
     setRegistrationSuccess(false);
   };
 
@@ -136,7 +134,7 @@ function RegistrationForm({show, closeSignUpForm}) {
                 onChange={(e) => setEmailId(e.target.value)} 
               />
             </Form.Group>
-              {emailError && employeeIdError && <p>{emailError} {employeeIdError}</p>}
+              {emailError && <p>{emailError}</p>}
             <Form.Group
               className="mb-3"
               controlId="passwordarea"
@@ -150,7 +148,8 @@ function RegistrationForm({show, closeSignUpForm}) {
               placeholder = "Password"
                />
             </Form.Group>
-            {registrationSuccess && <p>Registration successful!</p>}
+          {/*If registration is sucessful, message below prints*/}
+            {registrationSuccess && <p>Registration successful!</p>} 
             <Modal.Footer>
           {/* Close button */}
           <Button variant="tertiary" onClick={closeSignUpForm}>
@@ -169,7 +168,8 @@ function RegistrationForm({show, closeSignUpForm}) {
       </Modal>
     </>
   );
-}
+  }
+
    
 // try removing the onChange prop and typing in a field
 export default RegistrationForm;
