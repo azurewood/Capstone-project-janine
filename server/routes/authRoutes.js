@@ -13,5 +13,4 @@ const router = express.Router()
 router.post('/login', authController.loginUser)
 router.post('/registration', authController.registerUser)
 
-
 module.exports = router
