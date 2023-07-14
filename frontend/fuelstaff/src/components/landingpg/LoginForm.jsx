@@ -11,6 +11,7 @@ function LoginForm({show, handleClose}) {
   const [emailId, setEmailId] = useState('')
   const [password, setPassword] = useState('')
   const [loginError, setLoginError] = useState('')
+ 
 
 //Access the router object - the 'useRouter' hook is used to access the router object, which allows for navigation after successful registration. 
   const router = useRouter()
@@ -29,7 +30,7 @@ const handleSubmit = async (e) => {
   e.preventDefault()
 
    // Perform client-side validation.
-   // Both `emailId.trim() === ''` and `password.trim() === ''`check if the email and password input fields are empty strings. If either field is empty (the condition is 'true'), the 'loginError' state varia is set to the specified error 
+   // Both `emailId.trim() === ''` and `password.trim() === ''`check if the email and password input fields are empty strings. If either field is empty (the condition is 'true'), the 'loginError' state variable is set to the specified error 
    // message, telling the user needs to enter a valid email and password. The 'return' exits the function immediately, preventing the form submission from going further. 
    if (emailId.trim() === '' || password.trim() === '') {
     setLoginError('Please enter valid email and password.');
@@ -42,6 +43,7 @@ const handleSubmit = async (e) => {
     body: JSON.stringify(user)
   });
 
+  //Handling the response
   if (response.ok) {
     const data = await response.json();
     console.log('LOGIN SUCCESSFUL!', data);
@@ -56,6 +58,11 @@ const handleSubmit = async (e) => {
       setLoginError('User not found. Please register'); //tells a new user to click the 'register' button.
     }
   }
+};
+
+const handleReset = () => {
+  setEmailId('');
+  setPassword('');
 };
 
  //output of component
@@ -92,8 +99,11 @@ const handleSubmit = async (e) => {
             {loginError && <p>{loginError}</p>} 
         <Modal.Footer>
           {/*Close button*/}
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="Tertiary" onClick={handleClose}>
             Close
+          </Button>
+          <Button variant="secondary" onClick={handleReset}>
+            Reset
           </Button>
           {/*Enter button*/}
           <Button variant="dark" type="submit">
