@@ -49,7 +49,7 @@ const handleSubmit = async (e) => {
     console.log('LOGIN SUCCESSFUL!', data);
     //if login is successful, user is redirected to the dashboard page
     if (data.result === 200) {
-      router.push('../../../app/dashboard');
+      router.push('./dashboard');
     }
   } else {
     if (response.status === 401) { //401: client request not completed because it lacks valid authentication creditentials

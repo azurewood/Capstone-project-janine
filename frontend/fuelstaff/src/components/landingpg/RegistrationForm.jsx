@@ -58,7 +58,7 @@ function RegistrationForm({show, closeSignUpForm}) {
       //If registration is successful, new user is redirected to the dashboard page
         if (data.result === 200) {
           setRegistrationSuccess(true);
-        router.push('../../../app/dashboard');
+        router.push('./dashboard');
         }
     } else {
         if (response.status === 400) { 
