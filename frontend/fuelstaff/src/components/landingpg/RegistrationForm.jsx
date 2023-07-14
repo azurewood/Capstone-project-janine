@@ -16,6 +16,9 @@ function RegistrationForm({show, closeSignUpForm}) {
   const [emailId, setEmailId] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError] = useState('');
+  const [employeeIdError, setEmployeeIdError] = useState('');
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+
 
 //Access the router object - the 'useRouter' hook is used to access the router object, which allows for navigation after successful registration. 
   const router = useRouter()
@@ -25,13 +28,22 @@ function RegistrationForm({show, closeSignUpForm}) {
 
 //'userData' is an object that holds the form data entered by the user.
   const userData = {
-    firstName, lastName, employeeId, emailId, password
+    firstName: firstName,
+    lastName: lastName,
+    employeeId: employeeId,
+    emailId: emailId,
+    password: password
   }
 
 //Function to handle form submission. The 'handleSubmit' function is called when the form is submitted.
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+  if (emailId.trim() === '' || password.trim() === '' || employeeId.trim() === '') {
+      setEmailError('Please complete form with a valid email, password and employee ID');
+      return;
+    }
 
 //Send a POST request to the server with user data 
     const response = await fetch(SERVER_URL, {
@@ -43,19 +55,35 @@ function RegistrationForm({show, closeSignUpForm}) {
 //Handling the response
     if (response.ok) {
         const data = await response.json();
-        console.log('USER REGISTERED!', data)
-        router.push('../../../app/dashboard')
+        console.log('USER SUCCESSFULLY REGISTERED!', data);
+      //If registration is successful, new user is redirected to the dashboard page
+        if (data.result === 200) {
+          setRegistrationSuccess(true);
+        router.push('../../../app/dashboard');
+        }
     } else {
         if (response.status === 400) {
             const data = await response.json()
             console.log('ERROR in REGISTRATION', data.message)
-            if (data.error === 'USER ALREADY EXISTS') {
-              setEmailError('User already exists.')
+            //if user signs in using existing email and password
+            if (data.error === 'USER ALREADY EXISTS') { 
+              setEmailError && setEmployeeId ('User already exists');
             }
         }
     }
 
-  }
+  };
+  //to reset the form
+  const handleReset = () => {
+    setFirstName('');
+    setLastName('');
+    setEmployeeId('');
+    setEmailId('');
+    setPassword('');
+    setEmailError('');
+    setEmployeeIdError('');
+    setRegistrationSuccess(false);
+  };
 
  //output of component
   return (
@@ -107,8 +135,8 @@ function RegistrationForm({show, closeSignUpForm}) {
                 placeholder="Email"
                 onChange={(e) => setEmailId(e.target.value)} 
               />
-              {emailError && <Form.Text className="text-danger registration-error">{emailError}</Form.Text>}
             </Form.Group>
+              {emailError && employeeIdError && <p>{emailError} {employeeIdError}</p>}
             <Form.Group
               className="mb-3"
               controlId="passwordarea"
@@ -122,10 +150,14 @@ function RegistrationForm({show, closeSignUpForm}) {
               placeholder = "Password"
                />
             </Form.Group>
+            {registrationSuccess && <p>Registration successful!</p>}
             <Modal.Footer>
           {/* Close button */}
-          <Button variant="secondary" onClick={closeSignUpForm}>
+          <Button variant="tertiary" onClick={closeSignUpForm}>
             Close
+          </Button>
+          <Button variant="secondary" onClick={handleReset}>
+                Reset
           </Button>
           {/* Submit button */}
           <Button variant="dark" type='submit'>
