@@ -2,7 +2,7 @@
 
 'use client'
 import React from 'react';
-import backgroundimage from '../public/capstoneimages/backgroundimage.jpg'; //importing an image named backgroundimage
+import backgroundimage from '../public/images/backgroundimage.jpg'; //importing an image named backgroundimage
 import Landingnavbar from '../src/components/landingpg/Landingnavbar'; //importing landing navbar component
 import '../src/components/landingpg/landingstyles.css'
 
