@@ -6,6 +6,9 @@ import CustomCarousel from '../../src/components/Carousel/Carousel';
 import './dashboard.css';
 import DashNavBar from '../../src/components/dnavbar/dashboardnavbar';
 
+
+
+
 export default function Dashboard() {
     return ( 
         <>
@@ -15,6 +18,8 @@ export default function Dashboard() {
             <div className='custom-carousel'>
                 <CustomCarousel/>
             </div>
+           
+          
         </>
     )
 }

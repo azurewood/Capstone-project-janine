@@ -1,23 +1,34 @@
+//testing: fetching data from the backend (ie. data stored in the MongoDB database) to display on the frontend 
+//npm install swr
 'use client'
-import useSWR from 'swr';
+import useSWR from 'swr' 
+import React from 'react'
 
 export default function Meals() {
-    const fetcher = (url:string) => fetch(url).then((res) => res.json());
-    const {data, error, isLoading } = useSWR('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?diet=vegetarian&includeIngredients="salad, egg"&number=30&offset=30', fetcher);
-
-    if (error) {
-        return <h2>An error has occurred</h2>;
-      }
     
-      if (isLoading) {
-        return <h2>Loading...</h2>;
-      }
+    const fetcher = (url:any) => fetch(url).then((res) => res.json());
+    const { data, error, isLoading } = useSWR('http://localhost:8080/mealapi', fetcher) //URL from postman that works - displays data in Postman, in Mongodb and shows up on the frontend.
 
-    return (
-        <>
-        {data.map((recipes: any)=>{
-            return <p key={recipes.id}>{recipes.title} </p>
-        })}
-        </>
-    );
-    }
+
+if (error) {
+    return <h2>An error has occurred</h2>;
+  }
+
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
+
+  //in postman, the data is called 'data'. 
+  return (
+    <> 
+    {data.data.map((recipes:any) => (
+        <div key={recipes.id}>
+            <h3>{recipes.title}</h3>
+            <h4>NZD ${recipes.price}</h4>
+            <img src={recipes.image} alt={recipes.title} />
+        </div>
+        ))}
+      
+    </>
+  );
+}

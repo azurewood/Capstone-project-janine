@@ -1,5 +1,7 @@
 const axios = require('axios');
 const mealSchema = require('../models/meal.js')
+const asyncHandler = require('../middleware/asyncHandler.js')
+const Models = require('../models')
 
 const fetchAPIData = (req, res) => {
     let config = {
@@ -19,7 +21,7 @@ const fetchAPIData = (req, res) => {
         ({
             insertOne: {
                 document: {
-                    title, image, price: Math.random() * 100
+                    title, image, price: Math.floor(Math.random() * 20) //to change the price, drop the collection 'meals' in mongodb and then do {{LOCAL}}/mealapi/fetch in postman, then {{LOCAL}}/mealapi and refresh mongodb - meals collection should show up again
                 }
             }
         })))
@@ -34,7 +36,20 @@ const fetchAPIData = (req, res) => {
 
 }
 
+//creating another controller which gets data from mongodb database --> frontend
+const getMeals = asyncHandler(async (req, res, next) => {
+    const meals = await Models.Meal.find({})
+    .then(data => res.send({ result: 200, data }))
+    .catch(err => {
+        console.log(err);
+        res.send({ result: 400, error: err.message });
+    });
+})
+
+
+
 //export the function for the router to access
 module.exports = {
-    fetchAPIData
+    fetchAPIData,
+    getMeals
 }
