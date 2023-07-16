@@ -25,7 +25,7 @@ function DashNavBar() {
           <Form className="d-flex">
             <Form.Control
               type="search"
-              placeholder="Search"
+              placeholder="What would you like to eat today?"
               className="me-2"
               aria-label="Search"
             />

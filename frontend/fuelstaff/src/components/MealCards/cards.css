@@ -1,0 +1,67 @@
+/*card styling*/
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.meals-card {
+    width: 320px;
+    height: 340px;
+    margin: 10px; /* space between each card */
+    transition: transform 0.3s ease-in-out;
+    background-color: initial;
+    position: relative;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.meals-card:hover{
+    transform: scale(1.05);
+    background-color: #f2f2f2;
+}
+
+.meal-image{
+    object-position: cover;
+    width: 319px;
+    height: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.card-title {
+    font-size: 15px; 
+    margin-bottom: 20px;
+}
+
+.card-price {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 15px;
+    margin-bottom: 0px;
+
+}
+
+.icon-button {
+    position: absolute; /* Add this line to set position for the button */
+    top: 8%; /* Adjust the top value to position the button vertically */
+    left: 87%; /* Adjust the left value to position the button horizontally */
+    width: 30px;
+    height: 20px;
+    font-size: 24px; 
+    transform: translate(-50%, -50%); /* Center the button using transform */
+    background-color: transparent; /* Set the background to transparent */
+    border: none; /* Remove border */
+    outline: none; /* Remove outline */
+    cursor: pointer; /* Add pointer cursor on hover */
+  }
+
+  .icon-button:hover {
+    /* background-color: #ccc;  */
+    color: #fff; /* Example text color on hover */
+  }
+
+
