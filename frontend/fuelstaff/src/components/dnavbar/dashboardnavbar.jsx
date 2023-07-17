@@ -28,10 +28,8 @@ function DashNavBar() {
           <Nav.Link href="#action5">
             <FontAwesomeIcon icon={faShoppingCart} />
           </Nav.Link>
-          <Button variant="Light">Logout</Button>{' '}
-          {/* <Nav.Link href="#action6">
-            <FontAwesomeIcon icon={faSignOutAlt} />
-          </Nav.Link> */}
+          <Button variant="Light" Link href="/">Logout</Button>{' '}
+          {/* When user clicks the Logout button, user is redirected to Landing page */}
         </Nav>
       </Container>
     </Navbar>
