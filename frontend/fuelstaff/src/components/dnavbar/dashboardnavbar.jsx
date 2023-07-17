@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import './dnavbar.css';
 
 function DashNavBar() {
   return (
@@ -22,15 +23,17 @@ function DashNavBar() {
             <Nav.Link href="#action1">Events</Nav.Link>
             <Nav.Link href="#action2">News</Nav.Link>
           </Nav>
+        {/* <div className ="search-container">
           <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="What would you like to eat today?"
-              className="me-2"
+              className="searchbar"
               aria-label="Search"
             />
             <Button variant="outline-success">Search</Button>
           </Form>
+          </div> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>
