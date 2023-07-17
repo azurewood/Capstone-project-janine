@@ -31,6 +31,9 @@ app.use('/user', userRoutes)
 let authRoutes = require('./routes/authRoutes')
 app.use('/auth', authRoutes)
 
+let orderRoutes = require('./routes/orderRoutes')
+app.use('/api', orderRoutes)
+
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to my MongoDB application." });
 });

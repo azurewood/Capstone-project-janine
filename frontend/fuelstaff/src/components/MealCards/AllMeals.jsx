@@ -5,6 +5,7 @@ import useSWR from 'swr'
 import React from 'react'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+
 import './cards.css';
 //Install font Awesome dependencies npm install @fortawesome/fontawesome-svg-core @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons 
 //Create a layout.js file in the app folder to import the Font Awesome core styles and config# prior to using the icons 
@@ -27,7 +28,7 @@ if (error) {
   if (isLoading) {
     return <h2>Loading...</h2>;
   }
-
+  
   //in postman, the data is called 'data'. 
   return (
     <> 
