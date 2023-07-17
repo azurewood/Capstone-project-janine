@@ -38,6 +38,7 @@ if (error) {
           <Card.Body>
               <Card.Title className = "card-title">{recipes.title}</Card.Title>
               <Card.Text className = "card-price">NZD ${recipes.price}</Card.Text>
+            {/*add to cart button*/}
             <div className="button-container">
              <button className="icon-button" onClick={handleButtonClick}>
                 <FontAwesomeIcon
