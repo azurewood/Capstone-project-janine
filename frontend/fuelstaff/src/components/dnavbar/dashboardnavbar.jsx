@@ -25,6 +25,7 @@ function DashNavBar() {
           <Nav.Link href="#action3">
             <FontAwesomeIcon icon={faUser} />
           </Nav.Link>
+          {/* when clicked, the button takes the user to the cart page*/}
           <Nav.Link href="#action5">
             <FontAwesomeIcon icon={faShoppingCart} />
           </Nav.Link>
