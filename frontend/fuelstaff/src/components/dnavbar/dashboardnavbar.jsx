@@ -5,6 +5,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
 import './dnavbar.css';
 
 function DashNavBar() {
@@ -26,9 +28,21 @@ function DashNavBar() {
             <FontAwesomeIcon icon={faUser} />
           </Nav.Link>
           {/* when clicked, the button takes the user to the cart page*/}
-          <Nav.Link href="#action5">
-            <FontAwesomeIcon icon={faShoppingCart} />
-          </Nav.Link>
+          <DropdownButton
+            id="dropdown-button-dark-example2"
+            variant="secondary"
+            title={<FontAwesomeIcon icon={faShoppingCart} />}
+            className="shopping-cart-dropdown"
+            data-bs-theme="dark"
+          >
+            <Dropdown.Item href="#/action-1" active>
+              Action
+            </Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
+          </DropdownButton>
           <Button variant="Light" Link href="/">Logout</Button>{' '}
           {/* When user clicks the Logout button, user is redirected to Landing page */}
         </Nav>
