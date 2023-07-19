@@ -1,15 +1,18 @@
+
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Cart from '../Cart/cart';
 import './dnavbar.css';
 
-function DashNavBar() {
+//Dashboard Navigation bar 
+export default function DashNavBar() {
   return (
     <Navbar expand="lg" className="bg-body-dark">
       <Container fluid>
@@ -17,7 +20,6 @@ function DashNavBar() {
         <Nav className="mr-auto">
           <Nav.Link href="#action1"className="navlink">About</Nav.Link>
           <Nav.Link href="#action1"className="navlink">Education</Nav.Link>
-          <Nav.Link href="#action1"className="navlink">Events</Nav.Link>
           <Nav.Link href="#action2"className="navlink">News</Nav.Link>
         </Nav>
         <Nav className="ml-auto">
@@ -36,12 +38,10 @@ function DashNavBar() {
             data-bs-theme="dark"
           >
             <Dropdown.Item href="#/action-1" active>
-              Action
+            <Cart/> {/*cart component here*/}
             </Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
+            <Dropdown.Item href="#/action-4">Checkout button goes here</Dropdown.Item>
           </DropdownButton>
           <Button variant="Light" Link href="/">Logout</Button>{' '}
           {/* When user clicks the Logout button, user is redirected to Landing page */}
@@ -51,5 +51,5 @@ function DashNavBar() {
   );
 }
 
-export default DashNavBar;
+
 
