@@ -26,7 +26,7 @@ const AllMeals = () => {
     <>
       <div className="card-container">
         {data.data.map((recipes) => (
-          <Card key={recipes.id} className="meals-card">
+          <Card key={recipes._id} className="meals-card">
             <Card.Img variant="top" className="meal-image" src={recipes.image} />
             <Card.Body>
               <Card.Title className="card-title">{recipes.title}</Card.Title>
@@ -34,7 +34,7 @@ const AllMeals = () => {
               {/* Add to cart button */}
               <div className="button-container">
     
-                <button className="icon-button" onClick={() => addToCart(recipes._id)}>
+                <button className="icon-button" onClick={() => addToCart(recipes)}>
                   <FontAwesomeIcon
                     style={{ color: 'black' }}
                     icon={faCirclePlus}

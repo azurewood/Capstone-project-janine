@@ -21,7 +21,7 @@ const getDefaultCart = () => {
 
 //DEFINE OUR STATES AND EVERYTHING RELATED TO LOGIC IN OUR PROJECT
 export const CartContextProvider = (props) => {
-    const[cartItems, setCartItems] = useState(getDefaultCart());
+    const[cartItems, setCartItems] = useState([]);
 
   
 
@@ -40,7 +40,7 @@ export const CartContextProvider = (props) => {
     //functionality for adding to cart
     //what we want to do with state - will take id of recipe
     const addToCart = (recipeId) => {
-        setCartItems((prev) => ({...prev, [recipeId]: prev[recipeId] + 1}));
+        setCartItems(([...cartItems, recipeId]));
     };
     //update 
     const updateCartItemCount = (newAmount, itemId) => {
