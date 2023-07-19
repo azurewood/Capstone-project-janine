@@ -18,3 +18,15 @@
 .carousel-caption {
     color: black;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .carousel-container {
+      padding-top: 20px; /* Adjust the padding for smaller screens */
+      height: auto; /* Remove fixed height to allow content to expand */
+    }
+  
+    .carousel-image-container {
+      flex-direction: column; /* Stack carousel items vertically */
+    }
+  }

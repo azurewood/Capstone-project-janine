@@ -7,7 +7,22 @@ import './cart.css'
 
 export const Cart=() => {
     const {cartItems, getTotalCartAmount} = useContext(CartContext)
-    const totalAmount = getTotalCartAmount();
+    // const totalAmount = getTotalCartAmount();
+
+    //Calculate total price 
+    // const totalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const totalPrice = cartItems.reduce((acc, item) => {
+      console.log("Item price:", item.price);
+      console.log("Item quantity:", item.quantity);
+      const price = Number(item.price);
+      const quantity = Number(item.quantity);
+      if (Number.isFinite(price) && Number.isFinite(quantity)) {
+        return acc + price * quantity;
+      }
+      return acc;
+    }, 0);
+  
+    console.log("Total price:", totalPrice);
 
   return (
     <div className ="cart">
@@ -19,10 +34,12 @@ export const Cart=() => {
             {cartItems?.map((item) => (
               <CartItem_ item={item}/>
             ))}
-              <div className="TotalPrice"><h5>Total price: {cartItems.reduce((acc, current) => acc + current.price * current.quantities, 0).toFixed(2)}</h5></div>
+            <div className="TotalPrice">
+          <h5>Total price: {totalPrice.toFixed(2)}</h5>
+          </div>
         </div>
-        </div> 
-        ) 
+      </div> 
+    ) 
  
 };
   

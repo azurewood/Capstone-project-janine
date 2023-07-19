@@ -3,6 +3,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-top: 40px; /*moves the card container down below autoslider */
 }
 
 .meals-card {
@@ -12,8 +13,6 @@
     transition: transform 0.3s ease-in-out;
     background-color: initial;
     position: relative;
-    /* display: flex;
-    flex-direction: column; */
 }
 
 .meals-card:hover{
