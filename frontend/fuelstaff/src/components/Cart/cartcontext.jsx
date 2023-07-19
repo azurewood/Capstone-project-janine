@@ -23,11 +23,14 @@ const getDefaultCart = () => {
 export const CartContextProvider = (props) => {
     const[cartItems, setCartItems] = useState(getDefaultCart());
 
+  
+
     const getTotalCartAmount = () => {
         let totalAmount = 0;
         for (const item in cartItems) {
           if (cartItems[item] > 0) {
             let itemInfo = AllMeals.find((recipeId) => recipeId === Number(item));
+            console.log(itemInfo, 'cart INFO')
             totalAmount += cartItems[item] * itemInfo.price;
           }
         }

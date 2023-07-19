@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
-import Cart from '../Cart/cart';
+import {Cart} from '../Cart/cart';
 import './dnavbar.css';
 
 //Dashboard Navigation bar 
@@ -35,10 +35,11 @@ export default function DashNavBar() {
             variant="secondary"
             title={<FontAwesomeIcon icon={faShoppingCart} />}
             className="shopping-cart-dropdown"
-            data-bs-theme="dark"
+            data-bs-theme="light"
           >
             <Dropdown.Item href="#/action-1" active>
-            <Cart/> {/*cart component here*/}
+            {/*cart component here   */}
+            <Cart/>
             </Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item href="#/action-4">Checkout button goes here</Dropdown.Item>

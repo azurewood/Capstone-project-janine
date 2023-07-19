@@ -33,7 +33,8 @@ const AllMeals = () => {
               <Card.Text className="card-price">NZD ${recipes.price}</Card.Text>
               {/* Add to cart button */}
               <div className="button-container">
-                <button className="icon-button" onClick={() => addToCart(recipes.id)}>
+    
+                <button className="icon-button" onClick={() => addToCart(recipes._id)}>
                   <FontAwesomeIcon
                     style={{ color: 'black' }}
                     icon={faCirclePlus}
