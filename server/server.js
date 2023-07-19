@@ -32,10 +32,10 @@ let authRoutes = require('./routes/authRoutes')
 app.use('/auth', authRoutes)
 
 let orderRoutes = require('./routes/orderRoutes')
-app.use('/api', orderRoutes)
+app.use('/order', orderRoutes)
 
 let paymentRoutes = require('./routes/paymentRoutes');
-app.use('/api', paymentRoutes);
+app.use('/payment', paymentRoutes);
 
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to my MongoDB application." });

@@ -3,6 +3,19 @@
 const Order = require('../models/order');
 
 //TWO CONTROLLER FUNCTIONS for handling orders in a shopping cart 
+exports.getOrder = async (req, res) => {
+ try {
+  const order = await Order.findById( req.params.orderID )
+  if(order) {
+    res.status(200).json({ message: 'ORDER FOUND',
+    order})
+  } else {
+    res.status(404).json({ message: 'NO ORDERS FOUND'})
+  }
+ } catch (error) {
+  res.status(400).json({ error: error.message })
+ }
+}
 
 //  order that needs to be added to the shopping cart
 // the function expects a request and response obj as parameters
@@ -15,6 +28,7 @@ exports.addOrder = async (req, res) => {
 
     //for different meals?? and then calculate the total price by summing up individual prices of different meals and their quantities
     
+
    // new instance of the 'order' model is made using data and calculation above
     const order = new Order({
       orderID,
