@@ -1,17 +1,11 @@
 //using context API- creating context object - holds the shopping information to share across the app
+//handles frontend logic and state of shopping cart 
 import React, { useState, createContext } from 'react' //adding createContext to create a context object
 import AllMeals from '../MealCards/AllMeals'
 
-//creating store in our application that will keep track of states and functions that needs to be accessed. 
-//want to have a state that can access and change state in shop and cart
-//creating a new context called ShopContext
 export const CartContext = createContext(null);
 
-//creating an object equal to ids of the recipes
-//function that will get array and then loop through the array 
-//add more products to cart - loop all items in cart
-//id will have to be the object id from mongodb? 
-const getDefaultCart = () => {
+  const getDefaultCart = () => {
     let cart = {};
     for (let i =1; i <= AllMeals.length + 1; i++) {
         cart[i] = 0;
@@ -23,33 +17,35 @@ const getDefaultCart = () => {
 export const CartContextProvider = (props) => {
     const[cartItems, setCartItems] = useState([]);
 
-  
-
     const getTotalCartAmount = () => {
-        let totalAmount = 0;
-        for (const item in cartItems) {
-          if (cartItems[item] > 0) {
-            let itemInfo = AllMeals.find((recipeId) => recipeId === Number(item));
-            console.log(itemInfo, 'cart INFO')
-            totalAmount += cartItems[item] * itemInfo.price;
+      let totalAmount = 0;
+      cartItems.forEach((itemAmount, orderID) => {
+          if (itemAmount > 0) {
+              let itemInfo = AllMeals.find((item) => item.id === orderID); // Assuming AllMeals has an 'id' property
+              if (itemInfo && itemInfo.price) {
+                  totalAmount += itemAmount * itemInfo.price;
+              }
           }
-        }
-        return totalAmount;
-      };
-    
+      });
+      return totalAmount;
+  };
+
     //functionality for adding to cart
     //what we want to do with state - will take id of recipe
-    const addToCart = (recipeId) => {
-        setCartItems(([...cartItems, recipeId]));
+    //function takes current cartItems array and creates a new array
+    //...spread operator is used to include all existing items
+    //then adds new orderID to end of the new array
+    const addToCart = (orderID) => {
+        setCartItems(([...cartItems, orderID])); //used to update the state of the cartItems array, containing the added orderID, adding the item to the cart 
     };
     //update 
-    const updateCartItemCount = (newAmount, itemId) => {
-        setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
+    const updateCartItemCount = (newAmount, orderID) => {
+        setCartItems((prev) => ({ ...prev, [orderID]: newAmount }));
       };
 
     //functionality to remove from cart
-    const removeFromCart = (recipeId) => {
-        setCartItems((prev) => ({...prev, [recipeId]: prev[recipeId] - 1}));
+    const removeFromCart = (orderID) => {
+        setCartItems((prev) => ({...prev, [orderID]: prev[orderID] - 1}));
     };
     
     //passing in the following between {} that i want access to

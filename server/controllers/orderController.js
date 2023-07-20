@@ -21,7 +21,7 @@ exports.getOrder = async (req, res) => {
 // the function expects a request and response obj as parameters
 exports.addOrder = async (req, res) => {
   try {
-    const { orderID, title, price, quantities } = req.body; //relevant data for the order is extracted from the req body using object destructuring
+    const {  title, price, quantities } = req.body; //relevant data for the order is extracted from the req body using object destructuring
 
     // Calculating the total price of a single order(meal) by multiplication and parsing them into integers
     const totalprice = parseInt(price) * parseInt(quantities);
@@ -31,19 +31,19 @@ exports.addOrder = async (req, res) => {
 
    // new instance of the 'order' model is made using data and calculation above
     const order = new Order({
-      orderID,
       title,
       price,
       quantities,
       totalprice,
     });
+    console.log(order)
 
     //saving 
     const savedOrder = await order.save();
     //sent as a json response
     res.status(201).json(savedOrder);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error });
   }
 };
 

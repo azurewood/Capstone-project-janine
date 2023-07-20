@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 
 const mealSchema = new Schema ({
    title: {type: String, trim: true, required: true},
-   price: {type: String, trim: true, required: true}, 
+   price: {type: Number, required: true},
+   quantities: {type: Number, default: 1},
    image: {type: String, trim: true},
 })
 

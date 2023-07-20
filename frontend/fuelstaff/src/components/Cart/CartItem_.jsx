@@ -1,5 +1,7 @@
+//responsible for rendering the individual cart items based on the information received from the context API and display details such as item name, price, image. 
 import React from 'react'
 import PropTypes from 'prop-types'
+import {cartcontext} from './cartcontext'
 
 CartItem_.propTypes = {
     item: PropTypes.object
@@ -14,18 +16,9 @@ function CartItem_({ item}) {
         <b>{item.title}</b>
       </p>
       <p> Price: NZ$ {item.price}</p>
-      <div className="countHandler">
-        <button onClick={() => {}}> - </button>
-        <input
-          value=""
-          onChange={() => {}}
-          type="number" // Specify the input type as number
-          min="0" // Set a minimum value if required
-        />
-        <button onClick={()=>{}}> + </button>
-      </div>
+     
     </div>
-  </div>
+    </div>
   )
 }
 

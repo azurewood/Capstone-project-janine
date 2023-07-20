@@ -14,7 +14,7 @@ const AllMeals = () => {
 
   const fetcher = (url) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR('http://localhost:8080/mealapi', fetcher);
-
+  console.log(data, 'FETCHER')
   if (error) {
     return <h2>An error has occurred</h2>;
   }
