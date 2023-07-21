@@ -11,61 +11,45 @@ export default function CustomCarousel() {
           <div className="carousel-image-container">
             <Image
               className="d-block w-500"
-              src="/images/drfood.jpg"
+              src="/images/besmart.jpg"
               alt="First slide"
               width={1000}
               height={600}
             />
           </div>
-          <Carousel.Caption className="carousel-caption">
-            <h3>First slide label</h3>
-            <p>Hello</p>
-          </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <div className="carousel-image-container">
             <Image
               className="d-block w-500"
-              src="/images/slide1.jpg"
-              alt="First slide"
+              src="/images/stethoscope.jpg"
+              alt="Second slide"
               width={1000}
               height={600}
             />
           </div>
-          <Carousel.Caption className="carousel-caption">
-            <h3>First slide label</h3>
-            <p>Hello</p>
-          </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <div className="carousel-image-container">
             <Image
               className="d-block w-500"
-              src="/images/healthyimg1.jpg"
-              alt="First slide"
+              src="/images/canva.jpg"
+              alt="Third slide"
               width={1000}
               height={600}
             />
           </div>
-          <Carousel.Caption className="carousel-caption">
-            <h3>First slide label</h3>
-            <p>Hello</p>
-          </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <div className="carousel-image-container">
             <Image
               className="d-block w-500"
-              src="/images/healthyimg2.jpg"
-              alt="First slide"
+              src="/images/fruitandveg.jpg"
+              alt="Last slide"
               width={1000}
               height={600}
             />
           </div>
-          <Carousel.Caption className="carousel-caption">
-            <h3>First slide label</h3>
-            <p>Hello</p>
-          </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
     </div>

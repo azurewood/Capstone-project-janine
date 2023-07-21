@@ -1,0 +1,27 @@
+.centered-title {
+    display: flex;
+    justify-content: center;
+  }
+
+.topimage {
+    padding-top: 30px;
+    width: 100%;
+    height: 600px; /* Adjust this value to set the height of the card */
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.card {
+    width: 100%; /* Set the width of the Card */
+    height: 1000px; /* Set the height of the Card */
+    border-color: white;
+    justify-content:center;
+  }
+  
+body {
+    background-color: white;
+}
+  
+  

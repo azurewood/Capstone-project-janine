@@ -3,9 +3,12 @@
 }
 
 .shopping-cart-dropdown {
-    min-width: 200px;   
+    min-width: 100px;   
 }
 
+.logout {
+    min-width: 300px;
+}
 .shopping-cart-dropdown .dropdown-item {
     padding: 40px 50px 50px 40px;
 }

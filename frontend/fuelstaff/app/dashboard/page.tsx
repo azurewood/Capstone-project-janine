@@ -7,7 +7,7 @@ import DashNavBar from '../../src/components/dnavbar/dashboardnavbar'; //importi
 import Meals from '../../src/components/MealCards/AllMeals' //importing meal cards onto the dashboard page
 // import SearchBar from '../../src/components/Searchbar' //importing Search bar which is below the navbar
 import {CartContextProvider} from '../../src/components/Cart/cartcontext'
-import {Cart} from '../../src/components/Cart/cart'
+
 
 
 

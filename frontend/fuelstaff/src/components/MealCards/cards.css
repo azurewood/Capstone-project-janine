@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     justify-content: center;
     padding-top: 40px; /*moves the card container down below autoslider */
+    padding-bottom: 60px;
 }
 
 .meals-card {
