@@ -8,7 +8,8 @@ import PagesNavBar from '../../src/components/dnavbar/pagesnavbar'
 
 
 
-function GridExample() {
+
+const AboutBox: React. FC = () => {
     return (
      <>
      <PagesNavBar/>
@@ -43,4 +44,4 @@ function GridExample() {
     );
   }
   
-  export default GridExample;
+  export default AboutBox;

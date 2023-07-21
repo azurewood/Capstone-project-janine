@@ -29,12 +29,15 @@ export const CartContextProvider = (props) => {
       });
       return totalAmount;
   };
+  
 
     //functionality for adding to cart
     //what we want to do with state - will take id of recipe
     //function takes current cartItems array and creates a new array
     //...spread operator is used to include all existing items
     //then adds new orderID to end of the new array
+   
+    //add
     const addToCart = (orderID) => {
         setCartItems(([...cartItems, orderID])); //used to update the state of the cartItems array, containing the added orderID, adding the item to the cart 
     };
@@ -48,8 +51,13 @@ export const CartContextProvider = (props) => {
         setCartItems((prev) => ({...prev, [orderID]: prev[orderID] - 1}));
     };
     
+    //checkout
+    const checkout = () => {
+      setCartItems(getDefaultCart());
+    };
+  
     //passing in the following between {} that i want access to
-    const contextValue = {cartItems, addToCart, updateCartItemCount, removeFromCart, getTotalCartAmount}
+    const contextValue = {cartItems, addToCart, updateCartItemCount, removeFromCart, getTotalCartAmount, checkout}
     
     console.log(cartItems)
     //pass contextValue into the provider so have access to this outside of component

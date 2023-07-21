@@ -10,8 +10,7 @@ import {CartContextProvider} from '../../src/components/Cart/cartcontext'
 
 
 
-
-export default function Dashboard() {
+const Dashboard: React. FC = () => {
     return ( 
         <>
          <CartContextProvider>
@@ -27,4 +26,4 @@ export default function Dashboard() {
         </>
     )
 }
- 
+export default Dashboard;

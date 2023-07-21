@@ -1,11 +1,13 @@
 'use client'
 import React from 'react'
-
+import PayPalScriptProvider from '../../src/components/PayPal'
 
 
 export default function Checkout() {
   return (
-    <div>page</div>
+    <div>
+      <PayPalScriptProvider></PayPalScriptProvider>
+    </div>
   )
 }
 

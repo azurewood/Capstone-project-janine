@@ -41,8 +41,6 @@ export default function DashNavBar() {
             {/*cart component here   */}
             <Cart/>
             </Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item href="#/action-4">Checkout button goes here</Dropdown.Item>
           </DropdownButton>
           <Button variant="Light" className ="logout" Link href="/">Logout</Button>{' '}
           {/* When user clicks the Logout button, user is redirected to Landing page */}
