@@ -12,9 +12,11 @@ CartItem_.propTypes = {
     const {removeFromCart} =useContext(CartContext);
 
     const handleRemove = () => {
-      removeFromCart(item.id);
+      removeFromCart(item._id);
+
     };
-  
+
+    
   return (
       <div className="cartItem">
         <img src={item.image} alt="Item" /> {/* Add alt attribute for accessibility */}

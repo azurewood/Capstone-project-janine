@@ -32,7 +32,6 @@ export const CartContextProvider = (props) => {
   
 
     //functionality for adding to cart
-    //what we want to do with state - will take id of recipe
     //function takes current cartItems array and creates a new array
     //...spread operator is used to include all existing items
     //then adds new orderID to end of the new array
@@ -47,8 +46,12 @@ export const CartContextProvider = (props) => {
       };
 
     //functionality to remove from cart
+    //the removeFromCart function is designed to remove an item with a specific orderID from the cart by decrementing its quantity by 1.
+    //...prev - creates copy of current state of cart items
     const removeFromCart = (orderID) => {
-        setCartItems((prev) => ({...prev, [orderID]: prev[orderID] - 1}));
+
+      setCartItems(cartItems.filter((item)=>item._id !== orderID));
+
     };
     
     //checkout
