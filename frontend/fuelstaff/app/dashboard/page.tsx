@@ -7,18 +7,17 @@ import DashNavBar from '../../src/components/dnavbar/dashboardnavbar'; //importi
 import Meals from '../../src/components/MealCards/AllMeals' //importing meal cards onto the dashboard page
 // import SearchBar from '../../src/components/Searchbar' //importing Search bar which is below the navbar
 import {CartContextProvider} from '../../src/components/Cart/cartcontext'
+// import { PayPalScriptProvider} from '@paypal/react-paypal-js'
 
 
 //manage state visibililty of the cart
 const Dashboard: React. FC = () => {
-    // const [cartOpen, setCartOpen] = useState(false);
+   
 
-    // const handleToggleCart = () => {
-    //   setCartOpen(!cartOpen);
-    // };
     return ( 
-        <>
+        <>  
          <CartContextProvider>
+         {/* <PayPalScriptProvider options={{deferLoading: {true}}}> */}
             <DashNavBar/>
             {/* <SearchBar/> */}
             <div className='custom-carousel'>
@@ -27,6 +26,7 @@ const Dashboard: React. FC = () => {
             <div>
                 <Meals/>
             </div>
+            {/* </PayPalScriptProvider> */}
          </CartContextProvider>
         </>
     )

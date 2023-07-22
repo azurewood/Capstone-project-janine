@@ -1,7 +1,8 @@
 //using context API- creating context object - holds the shopping information to share across the app
 //handles frontend logic and state of shopping cart 
-import React, { useState, createContext } from 'react' //adding createContext to create a context object
+import React, { useState, createContext, useRouter } from 'react' //adding createContext to create a context object
 import AllMeals from '../MealCards/AllMeals'
+
 
 export const CartContext = createContext(null);
 
@@ -29,15 +30,33 @@ export const CartContextProvider = (props) => {
       });
       return totalAmount;
   };
-  
 
-    //functionality for adding to cart
-    //function takes current cartItems array and creates a new array
-    //...spread operator is used to include all existing items
-    //then adds new orderID to end of the new array
-   
-    //add
+// function cartcontext ({show, close}) {
+//   const [title, setTitle] =useState('')
+//   const [price, setPrice] =useState('')
+//   const [quantities, setQuantities] =useState('')
+//   const [totalprice, setTotalPrice] =useState('')
+//   const [orderError, setOrderError] = useState('')
+//   const [orderSubmitted, setOrderSubmitted] = useState('')
+//  }
+
+//  //access the router object
+// const router= useRouter()
+
+// //Server URL is the URL where the order data will be sent via a POST request
+// const SERVER_URL = 'http://localhost:8080/order'
+
+// const orderData = {
+//   title: title,
+//   price: price,
+//   quantities: quantities,
+//   totalprice: totalprice,
+// }
+
+
+    //add - can make fetch request to server - to POST cart contents 
     const addToCart = (orderID) => {
+      
         setCartItems(([...cartItems, orderID])); //used to update the state of the cartItems array, containing the added orderID, adding the item to the cart 
     };
     //update 

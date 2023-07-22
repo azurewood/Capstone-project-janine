@@ -16,16 +16,24 @@ exports.addPayment = async (req, res) => {
             return res.status(404).json({error: 'Order not found'});
         }
 
-    const payment = new Payment ({
+        order.paymentResult = {
+          id: req.body.id,
+          status: req.body.status,
+          update_time: req.body.update_time,
+          email_address: req.body.payer.email_address
+        }
+
+        const updateOrder = await order.save()
+
+
+/* const payment = new Payment ({
         orderId,
         amount,
         paymentMethod,
         paymentStatus,
-    });
+    }); */
 
-    const savedPayment = await payment.save();
-
-        res.status(201).json(savedPayment);
+        res.status(201).json(updateOrder);
     } catch (error) {
         res.status(400).json({ error: error.message });
     }

@@ -37,6 +37,12 @@ app.use('/order', orderRoutes)
 let paymentRoutes = require('./routes/paymentRoutes');
 app.use('/payment', paymentRoutes);
 
+app.get('/config/paypal', (req, res) => {
+    req.send({
+        clientId: process.env.PAYPAL_ID
+    })
+} );
+
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to my MongoDB application." });
 });
