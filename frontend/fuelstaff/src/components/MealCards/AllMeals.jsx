@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from '../Cart/cartcontext';
 import './cards.css';
-import SearchBar from '../SearchBar';
+import SearchBar from '../SearchBar'; //IMPORTING SEARCH BAR 
 
 
 const AllMeals = () => {
