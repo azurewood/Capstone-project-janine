@@ -1,36 +1,46 @@
 //Performs operations on order data
 
 const Order = require('../models/order');
+const Meal = require('../models/meal')
 
 //Fetch a single order by its ID
 exports.getOrder = async (req, res) => {
-    try {
-        const order = await Order.findById( req.params.orderID )
-        if(order) {
-          res.status(200).json({ message: 'ORDER FOUND',
-          order})
-        } else {
-          res.status(404).json({ message: 'NO ORDERS FOUND'})
-        }
-    } catch (error) {
-      res.status(400).json({ error: error.message })
+  try {
+    const order = await Order.findById(req.params.orderID)
+    if (order) {
+      res.status(200).json({
+        message: 'ORDER FOUND',
+        order
+      })
+    } else {
+      res.status(404).json({ message: 'NO ORDERS FOUND' })
     }
-    }
+  } catch (error) {
+    res.status(400).json({ error: error.message })
+  }
+}
 
 // POST - Create a new order
 exports.postOrder = async (req, res) => {
   try {
-    const {  title, price, quantities } = req.body; //relevant data for the order is extracted from the req body using object destructuring
+    const { meals } = req.body; //relevant data for the order is extracted from the req body using object destructuring
 
-    // Calculating the total price of a single order(meal) by multiplication and parsing them into integers
-    const totalprice = parseInt(price) * parseInt(quantities);
-    
-   // new instance of the 'order' model is made using data and calculation above
+    const allMeals = await Meal.find({});
+
+    const totalprice = meals.reduce((total, meal) => {
+      const { price } = allMeals.find((m) => meal.meal == m._id )
+      return total + (price * meal.quantity)
+    }, 0);
+
+    // // Calculating the total price of a single order(meal) by multiplication and parsing them into integers
+    // const totalprice = parseInt(price) * parseInt(quantities);
+
+    // const totalprice = meals.reduce((acc, meal))
+
+    // new instance of the 'order' model is made using data and calculation above
     const order = new Order({
-      title,
-      price,
-      quantities,
-      totalprice,
+      meals,
+      totalprice
     });
     console.log(order)
 
@@ -39,6 +49,7 @@ exports.postOrder = async (req, res) => {
     //sent as a json response
     res.status(201).json(savedOrder);
   } catch (error) {
+    console.log(error)
     res.status(400).json({ error });
   }
 };
@@ -49,7 +60,7 @@ exports.deleteOrder = async (req, res) => {
     const { orderId } = req.params;
 
     //finds and deletes the order by Id
-    const deletedOrder = await Order.findByIdAndDelete(orderId); 
+    const deletedOrder = await Order.findByIdAndDelete(orderId);
 
     //response options
     if (!deletedOrder) {

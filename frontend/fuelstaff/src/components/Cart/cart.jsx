@@ -14,12 +14,25 @@ const Cart = () => {
   // Navigate to checkout
   const router = useRouter();
 
-  const handleCheckout = () => {
-    router.push('/checkout');
-  };
+  //Server URL is the URL where the order data will be sent via a POST request
+  const SERVER_URL = "http://localhost:8080/order";
 
-  const handleRemoveItem = (orderID) => {
-    removeFromCart(orderID);
+  const handleCheckout = () => {
+    const order = {
+      meals: cartItems.map((meal) => ({meal: meal._id, quantity: meal.quantities }))
+    }
+    fetch(SERVER_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(order)
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+      // router.push('/checkout');
+    })
   };
 
   return (
