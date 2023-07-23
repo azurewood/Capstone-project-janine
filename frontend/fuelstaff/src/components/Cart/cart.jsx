@@ -31,7 +31,8 @@ const Cart = () => {
     .then((response) => response.json())
     .then((data) => {
       console.log(data)
-      // router.push('/checkout');
+
+      router.push('/checkout/${data._id'); //data being the object returned from creating the order
     })
   };
 
