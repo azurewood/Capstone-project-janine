@@ -2,15 +2,13 @@ const express = require('express');
 const router = express.Router();
 const orderController = require('../controllers/orderController');
 
-//GET
+//GET a single order by ID
 router.get('/:orderId', orderController.getOrder);
 
-//POST is used to send data to a server to create/update a resource
-//Data sent to the server with POST is stored in the request body of the HTTP request
-// @route 
-router.post('/', orderController.addOrder);
+//POST to create a new order/add order to cart (see postOrder in controller)
+router.post('/', orderController.postOrder);
 
-//Delete 
+//Delete an order by ID
 router.delete('/:orderId', orderController.deleteOrder);
 
 module.exports = router;

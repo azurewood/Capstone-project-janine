@@ -2,33 +2,29 @@
 
 const Order = require('../models/order');
 
-//TWO CONTROLLER FUNCTIONS for handling orders in a shopping cart 
+//Fetch a single order by its ID
 exports.getOrder = async (req, res) => {
- try {
-  const order = await Order.findById( req.params.orderID )
-  if(order) {
-    res.status(200).json({ message: 'ORDER FOUND',
-    order})
-  } else {
-    res.status(404).json({ message: 'NO ORDERS FOUND'})
-  }
- } catch (error) {
-  res.status(400).json({ error: error.message })
- }
-}
+    try {
+        const order = await Order.findById( req.params.orderID )
+        if(order) {
+          res.status(200).json({ message: 'ORDER FOUND',
+          order})
+        } else {
+          res.status(404).json({ message: 'NO ORDERS FOUND'})
+        }
+    } catch (error) {
+      res.status(400).json({ error: error.message })
+    }
+    }
 
-//  order that needs to be added to the shopping cart
-// the function expects a request and response obj as parameters
-exports.addOrder = async (req, res) => {
+// POST - Create a new order
+exports.postOrder = async (req, res) => {
   try {
     const {  title, price, quantities } = req.body; //relevant data for the order is extracted from the req body using object destructuring
 
     // Calculating the total price of a single order(meal) by multiplication and parsing them into integers
     const totalprice = parseInt(price) * parseInt(quantities);
-
-    //for different meals?? and then calculate the total price by summing up individual prices of different meals and their quantities
     
-
    // new instance of the 'order' model is made using data and calculation above
     const order = new Order({
       title,
@@ -47,7 +43,7 @@ exports.addOrder = async (req, res) => {
   }
 };
 
-// Removing an order from the shopping cart
+// Remove an order from the shopping cart
 exports.deleteOrder = async (req, res) => {
   try {
     const { orderId } = req.params;

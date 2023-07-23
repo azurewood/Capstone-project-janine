@@ -30,8 +30,8 @@ const AllMeals = () => {
       <div className="card-container">
         {/* Filter and map the data based on search query */}
         {data.data
-          .filter((recipe) =>
-            recipe.title.toLowerCase().includes(searchQuery.toLowerCase())
+          .filter((recipes) =>
+            recipes.title.toLowerCase().includes(searchQuery.toLowerCase())
           )
           .map((recipes) => (
             <Card key={recipes._id} className="meals-card">
@@ -39,6 +39,7 @@ const AllMeals = () => {
               <Card.Body>
                 <Card.Title className="card-title">{recipes.title}</Card.Title>
                 <Card.Text className="card-price">NZD ${recipes.price}</Card.Text>
+
                 {/* Add to cart button */}
                 <div className="button-container">
                   <button className="icon-button" onClick={() => addToCart(recipes)}>
