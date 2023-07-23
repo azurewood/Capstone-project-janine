@@ -1,23 +1,23 @@
 //using context API- creating context object - holds the shopping information to share across the app
 //handles frontend logic and state of shopping cart 
-import React, { useState, createContext, useRouter } from 'react' //adding createContext to create a context object
+import React, { useState, createContext } from 'react' //adding createContext to create a context object
 import AllMeals from '../MealCards/AllMeals'
 
 
 export const CartContext = createContext(null);
 
-  const getDefaultCart = () => {
+  const getDefaultCart = () => {//provide consistent and initial state for the cart -ensure each meal is present in the cart 
     let cart = {};
     for (let i =1; i <= AllMeals.length + 1; i++) {
         cart[i] = 0;
     }
-    return cart;
+    return cart; 
 };
 
-//DEFINE OUR STATES AND EVERYTHING RELATED TO LOGIC IN OUR PROJECT
+//manage state and logic related to shopping cart using the React context API
 export const CartContextProvider = (props) => {
     const[cartItems, setCartItems] = useState([]);
-
+   //Calculates total amount of all items in the cart 
     const getTotalCartAmount = () => {
       let totalAmount = 0;
       cartItems.forEach((itemAmount, orderID) => {
@@ -31,35 +31,51 @@ export const CartContextProvider = (props) => {
       return totalAmount;
   };
 
-// function cartcontext ({show, close}) {
-//   const [title, setTitle] =useState('')
-//   const [price, setPrice] =useState('')
-//   const [quantities, setQuantities] =useState('')
-//   const [totalprice, setTotalPrice] =useState('')
-//   const [orderError, setOrderError] = useState('')
-//   const [orderSubmitted, setOrderSubmitted] = useState('')
-//  }
 
-//  //access the router object
-// const router= useRouter()
+//Server URL is the URL where the order data will be sent via a POST request
+const SERVER_URL = 'http://localhost:8080/order'
 
-// //Server URL is the URL where the order data will be sent via a POST request
-// const SERVER_URL = 'http://localhost:8080/order'
+//function to send cart data to server
 
-// const orderData = {
-//   title: title,
-//   price: price,
-//   quantities: quantities,
-//   totalprice: totalprice,
-// }
+const sendCartToServer = async(orderID) => {
+    fetch (SERVER_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(orderID),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.message);
+      })
+    .catch((error) => {
+      console.error('Error:', error)
+    });
+};
 
+const addToCart =(orderID) => {
+    const itemInfo = AllMeals.find((item) => item.id === orderID);
+    if (itemInfo) {
+      const {title, price, quantities} = itemInfo
+      const totalprice = price * quantities;
+      const orderData = {
+        title,
+        price,
+        quantities,
+        totalprice,
+      };
+      sendCartToServer(orderData);
+    }
+    setCartItems([...cartItems, orderID]);
+}
 
-    //add - can make fetch request to server - to POST cart contents 
-    const addToCart = (orderID) => {
-      
-        setCartItems(([...cartItems, orderID])); //used to update the state of the cartItems array, containing the added orderID, adding the item to the cart 
-    };
-    //update 
+    //CODE THAT ADDS ITEMS TO CART add - can make fetch request to server - to POST cart contents 
+    // const addToCart = (orderID) => {
+    //     setCartItems(([...cartItems, orderID])); //used to update the state of the cartItems array, containing the added orderID, adding the item to the cart 
+    // };
+
+   // update 
     const updateCartItemCount = (newAmount, orderID) => {
         setCartItems((prev) => ({ ...prev, [orderID]: newAmount }));
       };
