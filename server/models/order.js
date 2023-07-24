@@ -11,26 +11,12 @@ const orderSchema = new Schema ({
    // },
    meals: [
       {
-         meal: {
-            type: Schema.Types.ObjectId,
-            ref: 'meal',
-            required: true
-         },
-         quantity: {
-            type: Number,
-            default: 1
-         }
+         meal: {type: Schema.Types.ObjectId, ref: 'meal', required: true},
+         quantity: {type: Number, default: 1}
       }
    ],
-   totalprice: {
-      type: Number,
-      required: true
-   },
-   status: {
-      type: String,
-      enum: ['Draft', 'Paid', 'Done'],
-      default: 'Draft'
-   }
+   totalprice: {type: Number,required: true},
+   status: {type: String, enum: ['Draft', 'Paid', 'Done'], default: 'Draft'}
 }, {
    timestamps: true
 });
