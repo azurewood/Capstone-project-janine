@@ -34,8 +34,6 @@ export const CartContextProvider = (props) => {
   };
 
   //functionality to remove from cart
-  //the removeFromCart function is designed to remove an item with a specific orderID from the cart by decrementing its quantity by 1.
-  //...prev - creates copy of current state of cart items
   const removeFromCart = (mealId) => {
     setCartItems(cartItems.filter((item) => item._id !== mealId));
   };

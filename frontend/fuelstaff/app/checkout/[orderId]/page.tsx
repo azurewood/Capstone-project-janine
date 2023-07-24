@@ -1,14 +1,23 @@
 'use client'
-import React from 'react'
-import PayPalScriptProvider from '../../../src/components/PayPal'
+import React from 'react';
+import PayPalButton from '../../../src/components/PayPalButton'
+import CheckoutForm from '../../../src/components/Checkout/CheckoutForm'
 
 
-export default function Checkout() {
+const CheckoutPage: React.FC = () => {
+
+
   return (
-    <div>
-      <PayPalScriptProvider></PayPalScriptProvider>
-    </div>
-  )
-}
+    <>
+      <div>     
+        <CheckoutForm/>
+        <PayPalButton/>
+      </div>
+    </>
+  );
+};
+
+ export default CheckoutPage; 
+
 
 

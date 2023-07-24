@@ -1,8 +1,12 @@
 import { useEffect } from "react";
-import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
+import {
+    PayPalScriptProvider,
+    PayPalButtons,
+    usePayPalScriptReducer
+} from "@paypal/react-paypal-js";
 
 // This values are the props in the UI
-const amount = "10";
+const amount = "2";
 const currency = "NZD";
 const style = {"layout":"vertical"};
 
@@ -27,7 +31,7 @@ const ButtonWrapper = ({ currency, showSpinner }) => {
             { (showSpinner && isPending) && <div className="spinner" /> }
             <PayPalButtons
                 style={style}
-                disabled={undefined}
+                disabled={false}
                 forceReRender={[amount, currency, style]}
                 fundingSource={undefined}
                 createOrder={(data, actions) => {
@@ -57,18 +61,27 @@ const ButtonWrapper = ({ currency, showSpinner }) => {
     );
 }
 
-export default function PayPal() {
-	return (
-		<div style={{ maxWidth: "750px", minHeight: "200px" }}>
+export default function App() {
+    return (
+       
+          <div style={{
+             maxWidth: "750px",
+            minHeight: "200px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            }}>
             <PayPalScriptProvider
-                options={{
-                    "clientId": "test",
-                    components: "buttons",
-                    currency: "NZD"
-                }}
+              options={{
+                clientId: "test",
+                components: "buttons",
+                currency: "NZD",
+              }}
             >
-				<ButtonWrapper currency={currency} showSpinner={true}/>
-			</PayPalScriptProvider>
-		</div>
-	);
-}
+              <ButtonWrapper currency={currency} showSpinner={false} />
+            </PayPalScriptProvider>
+          </div>
+       
+      );
+    }
+
