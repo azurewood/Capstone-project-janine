@@ -32,7 +32,6 @@ const CheckoutForm = (orderId) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Here you can handle the form submission and possibly make an API call to process the payment.
     console.log("Form data:");
     // Clear the form after submission POSTMAN DATA GOES HERE
     setFormData({
@@ -42,25 +41,26 @@ const CheckoutForm = (orderId) => {
     });
   };
 
+
   return (
     <div className="container">
-
-
-      
+    
       <Form onSubmit={handleSubmit}>
 
       <h5>Order Summary</h5>
       <table>
           {cartItems.map((item) => {
+       
             return(
             <tr key={item._id}>
-
               <td>{item.title}</td>
               <td>Number of items# {item.quantities}</td>
               <td>Price $ {item.price}</td>
-            </tr>)
+            </tr>
+            )
           })}
           </table>
+          
 
         <Form.Group className="mb-3" controlId="formBasicFullName">
           <Form.Label> Full Name</Form.Label>
@@ -90,9 +90,14 @@ const CheckoutForm = (orderId) => {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Save Payment Details" />
         </Form.Group>
+        <div className="form-buttons-container">
         <Button variant="primary" type="submit">
           Submit
         </Button>
+        <Button variant="primary" type="submit" href="/dashboard">
+          Cancel
+        </Button>
+        </div>
       </Form>   
 
     </div>

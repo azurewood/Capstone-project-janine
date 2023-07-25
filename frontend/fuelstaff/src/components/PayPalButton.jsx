@@ -66,9 +66,11 @@ export default function App() {
        
           <div style={{
              maxWidth: "750px",
-            minHeight: "200px",
+            minHeight: "250px",
             display: "flex",
             justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
             alignItems: "center",
             }}>
             <PayPalScriptProvider
