@@ -2,6 +2,7 @@
 'use client'
 import React from 'react';
 import CustomCarousel from '../../src/components/Carousel/Carousel';
+import '../../src/components/Carousel/carouselstyles.css'
 import './dashboard.css';
 import DashNavBar from '../../src/components/dnavbar/dashboardnavbar'; 
 import Meals from '../../src/components/MealCards/AllMeals' 
