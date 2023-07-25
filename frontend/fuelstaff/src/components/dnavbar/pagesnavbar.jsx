@@ -13,11 +13,11 @@ export default function PagesNavBar() {
   return (
     <Navbar expand="lg" className="bg-body-dark">
       <Container fluid>
-        <Navbar.Brand href="/dashboard">FuelStaff</Navbar.Brand>
+        <Navbar.Brand href="/dashboard">StaffFuel</Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="/about"className="navlink">About</Nav.Link>
-          <Nav.Link href="#action1"className="navlink">Education</Nav.Link>
-          <Nav.Link href="#action2"className="navlink">News</Nav.Link>
+          <Nav.Link href="/education"className="navlink">Education</Nav.Link>
+          <Nav.Link href="/news"className="navlink">News</Nav.Link>
         </Nav>
         <Nav className="ml-auto">
           <Nav.Link href="#action4">

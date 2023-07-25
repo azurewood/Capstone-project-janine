@@ -22,3 +22,11 @@ const orderSchema = new Schema ({
 });
 
 module.exports = mongoose.model("order", orderSchema);
+
+//In postman for CREATE/POST
+// {
+//    "meals": [{
+//        "meal": "64b38a5064864b1607e0b4fe",
+//        "quantity": 1
+//    }]
+//  }
