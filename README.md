@@ -59,10 +59,9 @@ S-->P(Payment)
 P--confirmation of payment-->L
 C-->L(Logout)
 ```
-##How to run the program
+How to run the program
 1. The code is available on GitHub. Open a terminal and clone the repository from GitHub using the following command 'git clone' URL 
 2. Make sure you have the relevant dependencies installed, such as node.js, express.js, mongoose
-
 3.Make sure you have MongoDB installed and running on your machine. If not you can download it from the MongoDB official website. Follow the installation instructions for your OS. 
 4. The project contains 2 folders - a frontend and backend folder, open two terminals to start the application.
 5. For the frontend, go into the frontend folder and run the frontend by using 'npm run dev'.
